@@ -1,4 +1,4 @@
-# 🤖 P.A.R.T.H
+# P.A.R.T.H
 
 **Personalized Autonomous Robot with Thinking & Humanness**
 
@@ -9,14 +9,14 @@ P.A.R.T.H is an intelligent AI companion that combines real-time computer vision
 ![YOLO](https://img.shields.io/badge/YOLO-v8-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 🌟 Features
+## Features
 
-- **🎥 Real-time Computer Vision** - YOLO-based object detection with live camera feed
-- **🧠 Conversational AI** - Powered by Ollama/HuggingFace models with contextual memory
-- **💾 Vector Memory** - PostgreSQL + pgvector for intelligent conversation retrieval
-- **👶 Curious Personality** - Child-like AI that questions everything it sees
-- **🔧 Highly Configurable** - Zero hardcoding, everything driven by YAML config
-- **📡 API-Ready Architecture** - Built for easy scaling from local to cloud
+- **Real-time Computer Vision** - YOLO-based object detection with live camera feed
+- **Conversational AI** - Powered by Ollama/HuggingFace models with contextual memory
+- **Vector Memory** - PostgreSQL + pgvector for intelligent conversation retrieval
+- **Curious Personality** - Child-like AI that questions everything it sees
+- **Highly Configurable** - Zero hardcoding, everything driven by YAML config
+- **API-Ready Architecture** - Built for easy scaling from local to cloud
 
 ## 🏗️ Architecture Overview
 

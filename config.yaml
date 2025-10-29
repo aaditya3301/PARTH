@@ -22,15 +22,12 @@ prompts:
   system: ./prompts/system.txt
   tools: ./prompts/tools.md
 
-# Database Configuration
+# Database Configuration (NeonDB)
 database:
-  provider: postgresql  # Future: support sqlite, mysql
+  provider: neondb
   connection:
-    dbname: parthdb
-    user: parth_user
-    password: parth123
-    host: localhost
-    port: 5432
+    # Uses environment variable from .env file
+    url: "${NEON_DATABASE_URL}"
     timeout: 30
 
 # Memory/Embedding Configuration

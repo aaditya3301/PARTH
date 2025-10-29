@@ -15,15 +15,37 @@ class PostgresMemory:
         db_config = config["database"]["connection"]
         memory_config = config["memory"]
         
-        # Connect to database
-        self.conn = psycopg2.connect(
-            dbname=db_config["dbname"],
-            user=db_config["user"],
-            password=db_config["password"],
-            host=db_config["host"],
-            port=db_config.get("port", 5432),
-            connect_timeout=db_config.get("timeout", 30)
-        )
+        # Connect to database - support both URL and individual params
+        if "url" in db_config:
+            # NeonDB URL format
+            import os
+            from dotenv import load_dotenv
+            
+            # Load environment variables
+            load_dotenv()
+            
+            # Replace environment variable if present
+            db_url = db_config["url"]
+            if db_url.startswith("${") and db_url.endswith("}"):
+                env_var = db_url[2:-1]  # Remove ${ and }
+                db_url = os.getenv(env_var)
+                if not db_url:
+                    raise ValueError(f"Environment variable {env_var} not found")
+            
+            self.conn = psycopg2.connect(
+                db_url,
+                connect_timeout=db_config.get("timeout", 30)
+            )
+        else:
+            # Legacy individual parameters format
+            self.conn = psycopg2.connect(
+                dbname=db_config["dbname"],
+                user=db_config["user"],
+                password=db_config["password"],
+                host=db_config["host"],
+                port=db_config.get("port", 5432),
+                connect_timeout=db_config.get("timeout", 30)
+            )
         
         # Memory configuration
         self.session_id = memory_config["session_id"]

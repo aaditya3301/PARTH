@@ -9,3 +9,4 @@ numpy
 ollama
 ultralytics
 opencv-python
+python-dotenv
